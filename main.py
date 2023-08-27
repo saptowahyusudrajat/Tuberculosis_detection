@@ -158,22 +158,45 @@ def detect():
                 f"Number of Bacteria:",
                 (10, 40),
                 cv2.FONT_HERSHEY_SIMPLEX,
-                0.75,
+                1,
                 (0, 0, 255),
                 1,
                 cv2.LINE_AA,
             )
             count_b_text = str(count_b)
+
+            kategori = "Negative"
+            if count_b>=1 and count_b <=9:
+                kategori = "Scanty"
+            elif count_b>=10 and count_b <=99:
+                kategori = "1+"
+            elif count_b>=100 and count_b <1000:
+                kategori = "2+"
+            elif count_b>=1000:
+                kategori = "3+"
+            
             frame = cv2.putText(
                 frame,
                 count_b_text,
                 (10, 80),  # Adjust the position as needed
                 cv2.FONT_HERSHEY_SIMPLEX,
-                0.75,
+                1,
                 (0, 0, 255),
                 1,
                 cv2.LINE_AA,
             )
+
+            frame = cv2.putText(
+                frame,
+                f"Skala IUATLD: {kategori}",
+                (10, 120),  # Adjust the position as needed
+                cv2.FONT_HERSHEY_SIMPLEX,
+                1,
+                (0, 0, 255),
+                1,
+                cv2.LINE_AA,
+            )
+
             st.image(frame, caption="Detection Result", channels="BGR")
         # ctleft2.write(count_b)
         #st.write(count_b)
