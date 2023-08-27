@@ -122,7 +122,7 @@ def plot_boxes(results, frame, classes,threshold):
 
 
 def detect():
-    ctsingle.title("Detection Bacteria with YoloV5")
+    ctsingle.title("Bacteria detection dashboard @Achmad Agus")
     with ctleft2:
         threshold = st.slider("Detection Threshold", 0.0, 1.0, 0.00, step=0.01)
     # Upload gambar dari pengguna
